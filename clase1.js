@@ -6,8 +6,8 @@
 
 var nombre   = 'Rahisbel' 
 var apellido = 'Herrera'
-var edad = 22 
-edad = '22 años'
+var edad = 22 /* edad = '22 años' */
+
 
 console.log('Hola ' + nombre + ' ' + apellido)
 console.log('tengo ' + edad)
@@ -49,4 +49,31 @@ var str1 = nombre.substr(1,4) /* otra manera de acceder a las letras del string 
  * var ultimaLetra = nombreUsuario.charAt(cant - 1)
  *
  */
+
+/*======================================================
+=            Clase 3: Variables tipo número            =
+======================================================*/
+
+
+var incremento = edad + 1 /* edad += 1 */
+
+var peso = 75
+var decremento = peso - 2 /* peso -= 2 */
+
+var sandwich = 1
+var sumar = peso + sandwich /* peso += sandwich */
+
+var precioDeVino = 200.3
+var total = Math.round(precioDeVino * 100 * 3 ) / 100 /* para obtener decimales precisos */
+
+var totalStr = total.toFixed(2) /* dos decimales despues de la coma */
+
+var total2 = parseFloat(totalStr) /* transformar a flotante */
+
+var pizza = 8
+var persona = 2
+var division = pizza / persona
+
+
+
 
