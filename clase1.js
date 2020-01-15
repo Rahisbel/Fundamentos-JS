@@ -50,6 +50,7 @@ var str1 = nombre.substr(1,4) /* otra manera de acceder a las letras del string 
  *
  */
 
+
 /*======================================================
 =            Clase 3: Variables tipo número            =
 ======================================================*/
@@ -75,5 +76,20 @@ var persona = 2
 var division = pizza / persona
 
 
+/*==========================================
+=            clase 4: Funciones            =
+==========================================*/
+
+var nombre = 'Rahisbel' , edad = 22
+
+function imprimirEdad(n,e){
+	
+	console.log(`${n} tiene ${e} años`)
+}
+
+imprimirEdad(nombre,edad) //por ser un lenguaje fuertemente tipado 
+imprimirEdad(vicky,28)	  // en caso de que no enviemos los parametros	
+imprimirEdad(Eric,24)	  // no lanzará error, tratará de ejecutarlo
+imprimirEdad(Dario,27)
 
 
