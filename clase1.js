@@ -88,8 +88,21 @@ function imprimirEdad(n,e){
 }
 
 imprimirEdad(nombre,edad) //por ser un lenguaje fuertemente tipado 
-imprimirEdad(vicky,28)	  // en caso de que no enviemos los parametros	
-imprimirEdad(Eric,24)	  // no lanzará error, tratará de ejecutarlo
-imprimirEdad(Dario,27)
+imprimirEdad('vicky',28)	  // en caso de que no enviemos los parametros	
+imprimirEdad('Eric',24)	  // no lanzará error, tratará de ejecutarlo
+imprimirEdad('Dario',27)
 
 
+
+/*============================================================
+=            clase 5: el alcance de las Funciones            =
+============================================================*/
+
+function imprimirNombreEnMayusculas(n){ 
+	n = n.toUpperCase()
+	console.log(n)
+	// para no modificar la variable nombre (MAYUS)
+	// se utiliza un parametro n o nombre, cualquiera
+}
+
+imprimirNombreEnMayusculas(nombre)
