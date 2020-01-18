@@ -161,3 +161,32 @@ un objeto, se coloca rahisbel.nombre, dario.nombre  */
 
 // define el objeto y asigna nuevo nombre
 //imprimirNombreEnMayusculas1({nombre : 'pepito'})
+
+
+
+/*=======================================================
+=            clase 7: Desestructurar objetos            =
+=======================================================*/
+
+function imprimirNombreEnMayusculas2(persona){ 
+
+	var {nombre} = persona
+	//console.log(nombre.toUpperCase())
+
+}
+
+
+//imprimirNombreEnMayusculas2(rahisbel)
+
+/*RETO: Imprimir nombre y edad que imprima:
+hola, me llamo ... y tengo ... años
+
+function imprimirNombreYEdad(persona){
+	var {nombre} = persona
+	var {edad} = persona
+	console.log('Hola me llamo '+nombre+ ' y tengo '+edad+' años')
+}
+
+imprimirNombreYEdad(rahisbel)
+imprimirNombreYEdad(dario) */
+
