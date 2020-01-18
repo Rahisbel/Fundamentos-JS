@@ -209,3 +209,61 @@ function cumpleaños(persona){
 	// esto retorna un nuevo objeto con la misma información salvo la edad	
 	}
 }
+
+
+/*==============================================
+=            clase 9: Comparaciones            =
+==============================================*/
+
+/*Existen varias maneras de comparar variables u objetos dentro de javascript. 
+En el primer ejemplo le asignamos a X un valor numérico y a Y un string. 
+Para poder compararlos debemos agregar dos signos de igual (==). 
+Esto los convierte al mismo tipo de valor y permite que se puedan comparar.
+
+Cuando realizamos operaciones es recomendable usar tres símbolos de igual (===). 
+Esto permite que JavasScript no iguale las variables que son de distinto tipo. 
+Te recomendamos que uses el triple igual siempre que estés comparando variables.
+
+Existen cinco tipos de datos que son primitivos:
+
+Boolean
+Null
+Undefined
+Number
+String .
+
+recomiendan usar más el triple =*/
+
+var x = 4, y = '4'
+
+// x == y  permite comparar valores primitivos: número, letras.
+// x === y permite comparar tipos de variables.
+
+var unapersona = {
+	nombre: 'rahisbel'
+}
+
+var otrapersona = {
+	nombre:'rahisbel'
+	//...unapersona
+}
+
+/* Para los objetos no funciona ni el doble ni el triple
+dado que compara la referencia de las variables 
+unapersona == otrapersona  falso
+unapersona === otrapersona falso
+
+la única manera de que sea verdadero es igualando
+un objeto a otro, entonces así un objeto apuntaria 
+al mismo lugar de memoria: 
+
+var otrapersona = unapersona
+
+al hacer esto, debo tener presente que si modifico
+alguno de los dos objetos, el otro se verá afectado
+
+otrapersona.nombre = 'pepe'
+unapersona ---> "pepe"
+
+*/
+
