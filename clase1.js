@@ -190,3 +190,22 @@ function imprimirNombreYEdad(persona){
 imprimirNombreYEdad(rahisbel)
 imprimirNombreYEdad(dario) */
 
+
+/*===================================================================
+=            Clase 8 : Parámetros por referencia / valor            =
+===================================================================*/
+
+/*Javascript se comporta de manera distinta cuando le pasamos un objeto como parámetro.
+Cuando los objetos se pasan como una referencia, estos se modifican fuera de la función. 
+Para solucionar esto se puede crear un objeto diferente. Esto lo podemos hacer colocando 
+tres puntos antes del nombre. Ej …persona.
+*/
+
+
+function cumpleaños(persona){
+	return{
+		...persona, // se desglosa persona en ése nuevo objeto
+		edad : persona.edad+1
+	// esto retorna un nuevo objeto con la misma información salvo la edad	
+	}
+}
