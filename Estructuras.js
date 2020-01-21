@@ -201,4 +201,29 @@ while(liah.peso > META){
 	dias +=1
 }
 
-console.log(`pasaron ${dias} días hasta que ${liah.nombre} adelgazó 3kg`)
+//console.log(`pasaron ${dias} días hasta que ${liah.nombre} adelgazó 3kg`)
+
+/*=================================================
+=            clase 15 : Ciclo do while            =
+=================================================*/
+
+var contador = 0
+
+const llueve = () => Math.random() < 0.25
+
+do{
+
+	contador ++
+
+}while(!llueve())
+
+/*RETO: imprimir una vez o n veces dependiendo del contador 
+
+if(contador == 1){
+	console.log(`Fui a ver si llovía ${contador} una vez`)
+}
+else{
+	console.log(`Fui a ver si llovía ${contador} veces`)
+}
+
+*/
