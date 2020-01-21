@@ -151,14 +151,14 @@ var liah = {
 	peso: 35
 }
 
-console.log(`Al inicio del año ${liah.nombre} pesa ${liah.peso} kg`)
+//console.log(`Al inicio del año ${liah.nombre} pesa ${liah.peso} kg`)
 
 /* function aumentarDePeso(persona){
 		return persona.peso += 200
 	}
 */
 
-const INCREMENTO_PESO = 0.2
+const INCREMENTO_PESO = 0.3 //0.2
 const DIAS_DEL_ANO = 365 
 const aumentarDePeso = persona => persona.peso += INCREMENTO_PESO
 const adelgazar= persona => persona.peso -= INCREMENTO_PESO
@@ -174,4 +174,31 @@ for(var i = 1; i <= DIAS_DEL_ANO ; i++){
 	 }
 }
 
-console.log(`Al final del año ${liah.nombre} pesa ${liah.peso.toFixed(1)} kg`)
+//console.log(`Al final del año ${liah.nombre} pesa ${liah.peso.toFixed(1)} kg`)
+
+
+/*=============================================
+=            clase 14: Ciclo while            =
+=============================================*/
+
+/* En ocasiones nuestro código puede fallar por errores de syntaxis o errores lógicos.
+En caso de que quieras verificar tu código, debes utilizar un debugger. 
+El código se detiene cada vez que lee esta palabra.*/
+
+const META = liah.peso - 3
+const comeMucho = () => Math.random() < 0.3
+const realizaDeporte = () => Math.random() < 0.4 
+var dias = 0
+
+while(liah.peso > META){
+	//debugger
+	if(comeMucho()){ // aumenta
+		aumentarDePeso(liah)
+	}
+	if(realizaDeporte){ // adelgaza
+		adelgazar(liah)
+	}
+	dias +=1
+}
+
+console.log(`pasaron ${dias} días hasta que ${liah.nombre} adelgazó 3kg`)
