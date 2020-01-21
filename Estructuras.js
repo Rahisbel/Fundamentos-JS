@@ -140,3 +140,38 @@ function imprimirSiEsMenorDeEdad(persona){
 } */
 
 
+/*===========================================
+=            clase 13: Ciclo for            =
+===========================================*/
+
+var liah = {
+	nombre : 'Liah',
+	apellido : 'Mantilla',
+	edad : 5,
+	peso: 35
+}
+
+console.log(`Al inicio del año ${liah.nombre} pesa ${liah.peso} kg`)
+
+/* function aumentarDePeso(persona){
+		return persona.peso += 200
+	}
+*/
+
+const INCREMENTO_PESO = 0.2
+const DIAS_DEL_ANO = 365 
+const aumentarDePeso = persona => persona.peso += INCREMENTO_PESO
+const adelgazar= persona => persona.peso -= INCREMENTO_PESO
+
+for(var i = 1; i <= DIAS_DEL_ANO ; i++){
+	 var random = Math.random()
+
+	 if(random < 0.25){ // aumenta de peso
+	 	aumentarDePeso(liah)
+	 }
+	 else if(random < 0.5){ // adelgazar
+	 	adelgazar(liah)
+	 }
+}
+
+console.log(`Al final del año ${liah.nombre} pesa ${liah.peso.toFixed(1)} kg`)
