@@ -98,3 +98,45 @@ function imprimirSiEsMayorDeEdad(persona){
 }
 
 
+/*=================================================
+=            clase 12: Arrow functions            =
+=================================================*/
+
+/*En esta clase aprenderemos a utilizar Arrow Functions que permiten una nomenclatura 
+más corta para escribir expresiones de funciones. Este tipo de funciones deben definirse 
+antes de ser utilizadas.
+
+Al escribir las Arrow Functions no es necesario escribir 
+la palabra function, la palabra return, ni las llaves.*/
+
+/*función anónima  
+const esMayorDeEdad = function(persona){
+	return persona.edad >= MAYORIA_DE_EDAD
+}*/
+
+//otra forma de escribir lo de arriba
+// si lleva un sólo parametro, no es necesario los ()
+//const MayorDeEdad = persona => persona.edad >= MAYORIA_DE_EDAD
+const MayorDeEdad = ({edad}) => edad >= MAYORIA_DE_EDAD
+
+function permitirAcceso(persona){
+	if(!MayorDeEdad(persona)){
+		console.log('Acceso denegado')
+	}
+}
+
+/*RETO: escribir la funcion menor de edad con arrow function
+y sólo retorne la negación de la llamada mayor de edad:
+
+const MenorDeEdad = ({edad}) => edad < MAYORIA_DE_EDAD
+
+function imprimirSiEsMenorDeEdad(persona){
+	if(MenorDeEdad(persona)){
+		console.log(`${persona.nombre} es menor de edad` )
+	}
+	else{
+		console.log(`${persona.nombre} es mayor de edad` )
+	}
+} */
+
+
