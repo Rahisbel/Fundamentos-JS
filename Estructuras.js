@@ -227,3 +227,32 @@ else{
 }
 
 */
+
+/*=============================================================
+=            clase 16: Condicional múltiple Switch            =
+=============================================================*/
+
+/* Prompt, muestra un cuadro de mensaje que le pide al usuario que ingrese algúna información.
+   Break, sirve para que el browser se salte un bucle.*/
+
+var signo = prompt('¿Cuál es tu signo?')
+
+switch (signo){
+	case 'tauro':
+		console.log('Durante esta jornada, permita que su fantasía se libere y se convierta en la fuente de su inspiración. De esta forma, podrá darle un nuevo orden a su vida.')
+		break
+
+	case 'geminis':
+	case 'géminis':
+		console.log('Si pretende obtener una rápida prosperidad material, sepa que dependerá de su excelente criterio intelectual y de su perseverancia en el trabajo.')	
+		break
+
+	case 'aries' :
+		console.log('Será esencial para este día que empiece a controlar cada una de las emociones y así evitar que afecten de manera negativa su ánimo.')	
+		break
+
+	default :
+		console.log('no válido')
+		break	
+}		
+
