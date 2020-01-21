@@ -29,7 +29,7 @@ var personas = [pacho,rah,liah]
 for(var i = 0; i < personas.length; i++){
 	var persona = personas[i]
 
-	console.log(`${persona.nombre} mide ${persona.altura} m`)
+	//console.log(`${persona.nombre} mide ${persona.altura} m`)
 }
 
 /*===================================================
@@ -61,3 +61,30 @@ var personasAltas = personas.filter(esAlta)
 const esBaja = ({altura}) => altura <= 1.5
 var personasBajas = personas.filter(esBaja)
 console.log(personasBajas) */
+
+/*======================================================
+=            clase 19: Transformar un array            =
+======================================================*/
+
+/* En esta clase veremos cómo transformar un array. 
+El método map() itera sobre los elementos de un array 
+en el orden de inserción y devuelve array nuevo con los elementos modificados. 
+*/
+
+/*const pasarAlturaACms = persona => {
+	//persona.altura *= 100
+	return { // para no modificar el objeto original
+		...persona,
+		altura : persona.altura*100
+	}
+}*/ 
+
+const pasarAlturaACms = persona => ({
+	// para no modificar el objeto original
+		...persona,
+		altura : persona.altura*100
+})
+
+var personasCms = personas.map(pasarAlturaACms)
+
+//console.log(personasCms)
