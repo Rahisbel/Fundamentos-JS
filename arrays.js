@@ -9,19 +9,22 @@ booleanos, objetos, etc.*/
 var pacho ={
 	nombre :'Francisco',
 	apellido :'Lopez',
-	altura: 1.65
+	altura: 1.65,
+	libros : 50
 }
 
 var rah = {
 	nombre: 'Rahisbel',
 	apellido: 'Herrera',
-	altura:1.59
+	altura:1.59, 
+	libros:180
 }
 
 var liah = {
 	nombre : 'Liah',
 	apellido : 'Mantilla',
-	altura:1.20 
+	altura:1.20, 
+	libros: 20
 }
 
 var personas = [pacho,rah,liah]
@@ -88,3 +91,27 @@ const pasarAlturaACms = persona => ({
 var personasCms = personas.map(pasarAlturaACms)
 
 //console.log(personasCms)
+
+/*=============================================================
+=            clase 20: Reducir un array a un valor            =
+=============================================================*/
+
+/* El método reduce() nos permite reducir, mediante una función 
+que se aplica a cada uno de los elemento del array, todos los 
+elementos de dicho array, a un valor único. 
+*/
+
+//var acum = 0
+
+/*for(i=0 ; i< personas.length;i++){
+	acum = acum + personas[i].libros
+}
+
+console.log(`En total todos tienen ${acum} libros`)*/
+
+const reducir = (acum,{libros}) => acum + libros
+
+							// funcion, valor del acum
+var totalDeLibros = personas.reduce(reducir, 0)
+
+console.log(`En total todos tienen ${totalDeLibros} libros`)
