@@ -12,13 +12,13 @@ depende de cómo es llamada ésta.
 */
 // todas las funciones tienen el atributo prototype
                  // funcion    , funcion
-function heredaDe(prototipoHijo,prototipoPadre){ //parte de la clase 24
+/*function heredaDe(prototipoHijo,prototipoPadre){ //parte de la clase 24
 	var fn = function (){} 
 	fn.prototype = prototipoPadre.prototype
 	prototipoHijo.prototype = new fn
 	prototipoHijo.prototype.constructor = prototipoHijo
 	// si no pone esa linea, estará llamando al const de Padre
-} //generar herencia
+} //generar herencia */
 
 function Persona(nombre, apellido,altura){
  	this.nombre = nombre
@@ -71,7 +71,7 @@ tiene una propiedad privada que mantiene un enlace a otro objeto llamado prototi
 // tipo arrow function:
 Persona.prototype.Alto = () => this.altura > 1.8
 
-var blanca = new Persona('Blanca','Niño',1.9)
+var blanca = new Persona('Blanca','Niño',1.9) 
 
 
 /*==============================================================================
@@ -114,7 +114,7 @@ function Desarrollador(nombre,apellido){
 	this.apellido = apellido
 }
 
-heredaDe(Desarrollador,Persona) // debe ir antes de la función
+//heredaDe(Desarrollador,Persona) // debe ir antes de la función
 
 
 Desarrollador.prototype.saludar = function(){
@@ -122,6 +122,50 @@ Desarrollador.prototype.saludar = function(){
 }
 
 
-var liah = new Desarrollador('Liah', 'Mantilla')
-liah.saludar()
+//var liah = new Desarrollador('Liah', 'Mantilla')
+//liah.saludar()
+
+
+/*=========================================
+=            clase 25: Clases en JS       =
+=========================================*/
+
+/* Las clases de JavaScript son introducidas en el ECMAScript 2015
+y son una mejora en la sintaxis sobre la herencia basada en prototipos de JavaScript.
+La palabra clave extends se usa en declaraciones de clase o expresiones de clase para
+crear una clase que es hija de otra clase.
+
+El método constructor es un método especial para crear e inicializar un objeto creado 
+a partir de una clase. 
+*/
+
+
+class Personaa {
+	constructor(nombre,apellido,altura){
+		this.nombre = nombre
+		this.apellido = apellido
+		this.altura = altura
+	}
+
+	saludar(){
+		console.log(`Hola me llamo ${this.nombre} ${this.apellido}`)
+	}
+
+	soyAlto(){
+		return this.altura > 1.8
+	}
+}
+
+class Desarrolladorr extends Personaa{
+	constructor(nombre,apellido, altura){
+		super(nombre,apellido,altura) // constr del padre
+	}
+
+	saludar(){
+		console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y soy Desarrollador/a`)
+	}
+}
+
+var liah = new Personaa('Liah','Mantilla',1.60)
+var rah = new Desarrollador('Rahisbel','Herrera',1.59)
 
