@@ -44,3 +44,24 @@ obj.soyAlto()
 rah.soyAlto()
 yei.soyAlto()
 jesus.soyAlto()*/
+
+/*==========================================================
+=            clase 22: Modificando un prototipo            =
+==========================================================*/
+
+/* En esta clase veremos cómo se modifican las clases de herencias. 
+JavaScript funciona con una estructura orientada a objetos y cada objeto 
+tiene una propiedad privada que mantiene un enlace a otro objeto llamado prototipo.
+*/
+
+// es importante que las funciones esten ordenadas al inicio
+/*Persona.prototype.Alto = function () {
+	return this.altura > 1.8
+}*/
+
+// tipo arrow function
+Persona.prototype.Alto = () => this.altura > 1.8
+
+var blanca = new Persona('Blanca','Niño',1.9)
+
+
