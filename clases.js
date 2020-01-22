@@ -147,8 +147,15 @@ class Personaa {
 		this.altura = altura
 	}
 
-	saludar(){
-		console.log(`Hola me llamo ${this.nombre} ${this.apellido}`)
+	saludar(fn){
+		// var nombre = this.nombre
+		// var apellido = this.apellido clase 26
+		var {nombre, apellido} = this
+
+		console.log(`Hola me llamo ${nombre} ${apellido}`)
+		if(fn){ //clase 26
+			fn(nombre,apellido,false)
+		}	
 	}
 
 	soyAlto(){
@@ -161,11 +168,39 @@ class Desarrolladorr extends Personaa{
 		super(nombre,apellido,altura) // constr del padre
 	}
 
-	saludar(){
-		console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y soy Desarrollador/a`)
+	saludar(fn){
+		// var nombre = this.nombre
+		// var apellido = this.apellido clase 26
+		var {nombre, apellido} = this
+
+		console.log(`Hola, me llamo ${nombre} ${apellido} y soy Desarrollador/a`)
+		if(fn){ //clase 26
+			fn(nombre,apellido,true)
+		}
+	}
+}
+
+//var liah = new Personaa('Liah','Mantilla',1.60)
+//var rah = new Desarrollador('Rahisbel','Herrera',1.59)
+
+/*============================================================
+=            clase 26 : Funciones como parámetros            =
+============================================================*/
+
+/* En JavaScript, los parámetros de funciones son por defecto 
+undefined. De todos modos, en algunas situaciones puede ser 
+útil colocar un valor por defecto diferente que lo evalúe como verdadero. 
+*/
+
+function responderSaludo(nombre,apellido,esDev){
+	console.log(`Buen día ${nombre} ${apellido}`)
+	if(esDev){
+		console.log('Ah mirá, no sabía que eras Desarrollador/a')
 	}
 }
 
 var liah = new Personaa('Liah','Mantilla',1.60)
-var rah = new Desarrollador('Rahisbel','Herrera',1.59)
+var rah = new Desarrolladorr('Rahisbel','Herrera',1.59)
 
+liah.saludar()
+rah.saludar(responderSaludo)
