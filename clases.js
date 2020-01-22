@@ -59,9 +59,24 @@ tiene una propiedad privada que mantiene un enlace a otro objeto llamado prototi
 	return this.altura > 1.8
 }*/
 
-// tipo arrow function
+// tipo arrow function:
 Persona.prototype.Alto = () => this.altura > 1.8
 
 var blanca = new Persona('Blanca','Niño',1.9)
 
 
+/*==============================================================================
+=            clase 23: El contexto de las funciones ¿Quién es this?            =
+==============================================================================*/
+
+/* En esta clase explicamos por qué al introducir el arrow function salió un error. 
+El error del contexto de this en javascrip es uno de los errores más comunes.
+Recuerda que dentro de la arrow function, this está haciendo referencia al espacio 
+global, a windows. 
+*/
+
+/*Persona.prototype.soyAlto = function () {
+	return this.altura > 1.8
+	// this cambia el contexto, por eso da false
+	// this === window
+}*/
