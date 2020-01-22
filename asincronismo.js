@@ -30,3 +30,28 @@ se ejecute en ese tiempo exactamente, sino en cualquier momento a partir de all�
 sólo cuando la cola de tareas se haya vaciado. 
 */
 
+/*===========================================
+=            clase 29: Callbacks            =
+===========================================*/
+
+/* En esta clase aprenderemos que son los callbacks 
+y usaremos una librería externa que se llama jQuery.
+Un callback es una función que se pasa a otra función 
+como un argumento. Esta función se invoca, después, 
+dentro de la función externa para completar alguna acción. 
+*/
+const API_URL = 'https://swapi.co/api/'
+const PEOPLE_URL = 'people/:id'
+ 
+const lukeUrl = `${API_URL}${PEOPLE_URL.replace(':id',1)}`
+const opts = { crossDomain:true } // indica que el request se hará en otra pág
+
+// callback
+const onPeopleResponse = function(person){
+	console.log(`Hola, yo soy ${person.name}`)
+}
+
+//request
+//$.get(`${API_URL}${PEOPLE_URL.replace(':id',1)}`,{crossDomain:true})
+
+$.get(lukeUrl,opts,onPeopleResponse)
