@@ -10,6 +10,15 @@ En esta clase veremos el uso de this. Dentro de una función, el valor de this
 depende de cómo es llamada ésta.
 
 */
+// todas las funciones tienen el atributo prototype
+                 // funcion    , funcion
+function heredaDe(prototipoHijo,prototipoPadre){ //parte de la clase 24
+	var fn = function (){} 
+	fn.prototype = prototipoPadre.prototype
+	prototipoHijo.prototype = new fn
+	prototipoHijo.prototype.constructor = prototipoHijo
+	// si no pone esa linea, estará llamando al const de Padre
+} //generar herencia
 
 function Persona(nombre, apellido,altura){
  	this.nombre = nombre
@@ -80,3 +89,39 @@ global, a windows.
 	// this cambia el contexto, por eso da false
 	// this === window
 }*/
+
+
+/*=================================================================================
+=            clase 24: La verdad oculta sobre las clases en JavaScript            =
+=================================================================================*/
+
+/* Los objetos en JavaScript son “contenedores” dinámicos de propiedades. 
+Estos objetos poseen un enlace a un objeto prototipo. Cuando intentamos 
+acceder a la propiedad de un objeto, la propiedad no sólo se busca en el 
+propio objeto sino también en el prototipo del objeto, en el prototipo 
+del prototipo, y así sucesivamente hasta que se encuentre una propiedad 
+que coincida con el nombre o se alcance el final de la cadena de prototipos. 
+
+
+¿Cómo hacer para que un prototipo herede de otro?
+Así como tal JavaScript no soporta la herencia, porque no soporta las clases, 
+no hay clases, hay prototipos, que son objetos, que le vamos agregando métodos, 
+que reciben funciones, saben quien es this y saben como ejecutarlas.
+*/
+
+function Desarrollador(nombre,apellido){
+	this.nombre = nombre
+	this.apellido = apellido
+}
+
+heredaDe(Desarrollador,Persona) // debe ir antes de la función
+
+
+Desarrollador.prototype.saludar = function(){
+	console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y soy Desarrollador/a`)
+}
+
+
+var liah = new Desarrollador('Liah', 'Mantilla')
+liah.saludar()
+
