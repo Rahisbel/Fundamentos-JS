@@ -181,10 +181,41 @@ function onError(id){
 	console.log(`Sucedió un error al obtener el personaje ${id}`)
 }
 
-obtenerPersonaje(3)
+/*obtenerPersonaje(3)
 	.then(function(personaje){
 		console.log(`El personaje 3 es ${personaje.name}`)
 	})
-	.catch(onError)
+	.catch(onError)*/
 
+
+/*======================================================
+=            clase 34: Promesas encadenadas            =
+======================================================*/
 	
+/* A diferencia de los callbacks en el CallbackHell, 
+que terminan estando anidados unos dentro de otros, 
+cuando se usan Promesas la ejecución de las llamadas no 
+se hacen de manera anidada sino de manera encadenada, 
+al mismo nivel una debajo de la otra, lo que hace que 
+el código sea mucho más legible y mantenible. */
+
+obtenerPersonaje(3)
+	.then(personaje => {
+		console.log(`El personaje 3 es ${personaje.name}`)
+		return obtenerPersonaje(4)
+	})
+	.then(personaje => {
+		console.log(`El personaje 4 es ${personaje.name}`)
+		return obtenerPersonaje(5)
+	})
+	.then(personaje => {
+		console.log(`El personaje 5 es ${personaje.name}`)
+		return obtenerPersonaje(6)
+	})
+	.then(personaje => {
+		console.log(`El personaje 6 es ${personaje.name}`)
+	})
+	.catch(onError) // es el mismo para todas las promesas
+		
+
+		
