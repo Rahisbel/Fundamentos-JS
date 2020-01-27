@@ -60,13 +60,45 @@ const onPeopleResponse = function(person){
 =            clase 30: Múltiples request            =
 ===================================================*/
 
-function obtenerPersonaje(id){
+/*function obtenerPersonaje(id){
 	const url =`${API_URL}${PEOPLE_URL.replace(':id',id)}`
 	$.get(url,opts,onPeopleResponse)
-}
+}*/
+
+
 
 //no se sabe si el orden en el que llegue es igual al que se envió
 //esto es asincronismo en su máximo esplendor
-obtenerPersonaje(1)
-obtenerPersonaje(2)
-obtenerPersonaje(3)
+//obtenerPersonaje(1)
+//obtenerPersonaje(2)
+//obtenerPersonaje(3)
+
+/*============================================================================
+=            clase 31: Manejando el orden y el asincronismo en JS            =
+============================================================================*/
+
+/* Una manera de asegurar que se respete la secuencia en que hemos realizado múltiples 
+tareas es utilizando callbacks, con lo que se ejecutará luego, en cada llamada. Lo 
+importante es que el llamado al callback se haga a través de una función anónima. 
+Sin embargo, al hacerlo de esta manera generamos una situación poco deseada llamada CallbackHell. */
+
+function obtenerPersonaje(id,callback){
+	//console.log(id)
+	const url =`${API_URL}${PEOPLE_URL.replace(':id',id)}`
+	$.get(url,opts,function(persona){
+		console.log(`Hola, yo soy ${persona.name}`)
+		if(callback){
+			callback()
+		}
+	})
+}
+
+//al hacer esto se pierde el paralelismo de los request
+// el infierno de los callbacks
+obtenerPersonaje(1, function(){
+	obtenerPersonaje(2, function(){
+		obtenerPersonaje(3, function(){
+			obtenerPersonaje(4)
+		})
+	})
+})
