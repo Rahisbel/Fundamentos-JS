@@ -112,6 +112,7 @@ obtenerPersonaje(1, function(){
 /* Para solucionar el problema de quedarnos sin conexión, u otro error 
 similar, en medio de una sucesión de callbacks utilizamos el método fail().*/
 
+/*
 function obtenerPersonaje(id,callback){
 	//console.log(id)
 	const url =`${API_URL}${PEOPLE_URL.replace(':id',id)}`
@@ -120,6 +121,7 @@ function obtenerPersonaje(id,callback){
 	})
 		
 }
+
 
 					//callbacks
 obtenerPersonaje(1, function(personaje){
@@ -137,5 +139,52 @@ obtenerPersonaje(1, function(personaje){
 		})
 	})
 })
+*/
+
+/*==========================================
+=            clase 33: Promesas            =
+==========================================*/
 
 
+/* En esta clase veremos las promesas, que son valores que aun no conocemos. 
+Las promesas tienen tres estados:
+
+pending
+fullfilled
+rejected
+
+Las promesas se invocan de la siguiente forma:
+
+new Promise( ( resolve, reject ) => {
+  // --- llamado asíncrono
+  if( todoOK ) {
+     // -- se ejecutó el llamado exitosamente
+     resolve()
+  } else {
+     // -- hubo un error en el llamado
+     reject()
+  }
+} ) */
+
+
+function obtenerPersonaje(id){
+	return new Promise((resolve, reject) => {
+		const url =`${API_URL}${PEOPLE_URL.replace(':id',id)}`
+		$.get(url,opts,function(personaje){
+			resolve(personaje) // se ejecuta si el get es exitoso
+		})
+		.fail(()=>reject(id))
+	})
+}
+
+function onError(id){
+	console.log(`Sucedió un error al obtener el personaje ${id}`)
+}
+
+obtenerPersonaje(3)
+	.then(function(personaje){
+		console.log(`El personaje 3 es ${personaje.name}`)
+	})
+	.catch(onError)
+
+	
