@@ -237,10 +237,39 @@ var ids = [1,2,3,4,5,6,7]
 	return obtenerPersonaje(id)
 })*/				
 
-var promesas =  ids.map(id => obtenerPersonaje(id))	
+/*var promesas =  ids.map(id => obtenerPersonaje(id))	
 Promise
 	.all(promesas)
 	.then(personajes => console.log(personajes))
-	.catch(onError)
+	.catch(onError)*/
 
 
+/*=======================================================================
+=            clase 36: Async-away, lo último en asincronismo            =
+=======================================================================*/
+
+/* Async-await es la manera más simple y clara de realizar tareas asíncronas. 
+Await detiene la ejecución del programa hasta que todas las promesas sean 
+resueltas. Para poder utilizar esta forma, hay que colocar async antes de la 
+definición de la función, y encerrar el llamado a Promises.all() dentro de un 
+bloque try … catch.*/
+
+
+async function obtenerPersonajes1(){
+
+	var ids = [1,2,3,4,5,6,7]			
+
+	var promesas =  ids.map(id => obtenerPersonaje(id))
+
+	try{
+
+		var personajes = await Promise.all(promesas)
+		console.log(personajes)
+
+	}catch(id){
+
+		onError(id)
+	}
+}
+
+obtenerPersonajes1()
