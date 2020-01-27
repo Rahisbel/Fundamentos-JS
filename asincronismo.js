@@ -199,7 +199,7 @@ se hacen de manera anidada sino de manera encadenada,
 al mismo nivel una debajo de la otra, lo que hace que 
 el código sea mucho más legible y mantenible. */
 
-obtenerPersonaje(3)
+/*obtenerPersonaje(3)
 	.then(personaje => {
 		console.log(`El personaje 3 es ${personaje.name}`)
 		return obtenerPersonaje(4)
@@ -217,5 +217,30 @@ obtenerPersonaje(3)
 	})
 	.catch(onError) // es el mismo para todas las promesas
 		
+*/
 
+
+/*================================================================
+=            clase 35: Múltiples promesas en paralelo            =
+================================================================*/
 		
+/* Para hacer el llamado a múltiples promesas, nos apoyamos en un 
+array de ids con el que luego construimos otro arreglo de Promesas, 
+que pasaremos como parámetro a Promise.all( arregloDePromesas ), 
+con las promesas podemos encadenar llamadas en paralelo, algo que 
+no es posible usando callbacks. */	
+
+
+var ids = [1,2,3,4,5,6,7]
+
+/*var promesas =  ids.map(function(id){
+	return obtenerPersonaje(id)
+})*/				
+
+var promesas =  ids.map(id => obtenerPersonaje(id))	
+Promise
+	.all(promesas)
+	.then(personajes => console.log(personajes))
+	.catch(onError)
+
+
