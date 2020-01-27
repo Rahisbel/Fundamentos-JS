@@ -54,4 +54,19 @@ const onPeopleResponse = function(person){
 //request
 //$.get(`${API_URL}${PEOPLE_URL.replace(':id',1)}`,{crossDomain:true})
 
-$.get(lukeUrl,opts,onPeopleResponse)
+//$.get(lukeUrl,opts,onPeopleResponse)
+
+/*===================================================
+=            clase 30: Múltiples request            =
+===================================================*/
+
+function obtenerPersonaje(id){
+	const url =`${API_URL}${PEOPLE_URL.replace(':id',id)}`
+	$.get(url,opts,onPeopleResponse)
+}
+
+//no se sabe si el orden en el que llegue es igual al que se envió
+//esto es asincronismo en su máximo esplendor
+obtenerPersonaje(1)
+obtenerPersonaje(2)
+obtenerPersonaje(3)
