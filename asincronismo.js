@@ -82,7 +82,7 @@ tareas es utilizando callbacks, con lo que se ejecutará luego, en cada llamada.
 importante es que el llamado al callback se haga a través de una función anónima. 
 Sin embargo, al hacerlo de esta manera generamos una situación poco deseada llamada CallbackHell. */
 
-function obtenerPersonaje(id,callback){
+/*function obtenerPersonaje(id,callback){
 	//console.log(id)
 	const url =`${API_URL}${PEOPLE_URL.replace(':id',id)}`
 	$.get(url,opts,function(persona){
@@ -101,4 +101,41 @@ obtenerPersonaje(1, function(){
 			obtenerPersonaje(4)
 		})
 	})
+})*/
+
+
+/*=================================================================
+=            clase 32: Manejo de errores con callbacks            =
+=================================================================*/
+
+
+/* Para solucionar el problema de quedarnos sin conexión, u otro error 
+similar, en medio de una sucesión de callbacks utilizamos el método fail().*/
+
+function obtenerPersonaje(id,callback){
+	//console.log(id)
+	const url =`${API_URL}${PEOPLE_URL.replace(':id',id)}`
+	$.get(url,opts,callback).fail(function(){
+		console.log(`Sucedió un error. No se pudo obtener el personaje ${id}`)
+	})
+		
+}
+
+					//callbacks
+obtenerPersonaje(1, function(personaje){
+	console.log(`Hola, yo soy ${personaje.name}`)
+
+	obtenerPersonaje(2, function(personaje){
+		console.log(`Hola, yo soy ${personaje.name}`)
+
+		obtenerPersonaje(3, function(personaje){
+			console.log(`Hola, yo soy ${personaje.name}`)
+
+			obtenerPersonaje(4, function(personaje){
+				console.log(`Hola, yo soy ${personaje.name}`)
+			})
+		})
+	})
 })
+
+
