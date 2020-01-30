@@ -39,16 +39,38 @@ function esMayorDeEdad(persona){
 	console.log(mensaje) //si es let, lanzará error ya que se limita al bloque
 }
 
-esMayorDeEdad(liah)
+//esMayorDeEdad(liah)
 
-for(var i = 0 ; i<10 ; i++){
+/*for(var i = 0 ; i<10 ; i++){
 	console.log(i)
-}
+}*/
 
 // si i = var, imprimirá 10, sino dará error porque let reduce el alcance de la variable, sólo sirve dentro del ciclo
-console.log(`Terminó el for, el valor de i es:${i}`) 
+//console.log(`Terminó el for, el valor de i es:${i}`) 
 
 // es mejor trabajar con let antes que var cuando se necesite reasignar, si  no es necesario entonces usar const
 //con esto evitaremos bugs 
 // tratar de usar const antes que let y let antes que var. 
 
+/*===================================================
+=            ¿Hace cuantos días naciste?            =
+===================================================*/
+
+/*
+Con variables de tipo Date, se pueden realizar operaciones 
+de suma y resta similares a las que se realizan con números. 
+El resultado que se obtiene está en milisegundos, por lo que 
+luego hay que hacer algunas operaciones adicionales para 
+llevarlos a días, meses o años según queramos. También aplica 
+para Horas, Minutos, Segundos y Milisegundos.
+*/
+
+function diasEntreFechas(fecha1,fecha2){
+	const unDia = 1000 * 60 * 60 * 24
+	const diferencia = Math.abs(fecha1 - fecha2)
+
+	return Math.floor(diferencia/unDia)
+}
+
+const hoy = new Date()
+const nacimiento = new Date(1997,3,23)
