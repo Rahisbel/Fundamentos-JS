@@ -74,3 +74,23 @@ function diasEntreFechas(fecha1,fecha2){
 
 const hoy = new Date()
 const nacimiento = new Date(1997,3,23)
+
+
+/*============================================
+=            Funciones Recursivas            =
+============================================*/
+
+/* La recursividad es un concepto muy importante 
+en cualquier lenguaje de programación. Una función 
+recursiva es básicamente aquella que se llama (o se ejecuta) 
+a sí misma de forma controlada, hasta que sucede una condición base. 
+*/
+
+function divisionEntera(dividendo,divisor){
+	if(dividendo < divisor){
+		return 0
+	}
+
+	return 1 + divisionEntera(dividendo-divisor,divisor)
+	
+}
