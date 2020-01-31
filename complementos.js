@@ -206,3 +206,38 @@ function saludar (saludo = 'Hola'){
 
 saludar.call(rahisbel,'Hola che') // la ejecuta de una vez
 saludar.apply(rahisbel,['Hola che'])
+
+/*======================================================================================
+=            ¿Cuándo hace falta poner el punto y coma al final de la línea?            =
+======================================================================================*/
+
+/* 
+El punto y coma es opcional en JavaScript, excepto en algunos casos:
+
+Cuando usamos varias instrucciones en una mísma línea
+Al comenzar la próxima línea con un array
+Al comenzar la próxima línea con un template string
+
+*/
+
+console.log('Hola'); 
+[1,2,3].forEach(n=>console.log(n*2)) // o al inicio de ésta linea
+
+const nombre = 'Rahisbel'
+console.log('Hola');
+`${nombre} es desarrolladora`
+
+function calcularDoble(numero){ 
+
+	/*return esto lanzará error ya que lo interpreta como si hubiese un punto y coma, es un caso muy especial
+	{
+		original : numero, doble : numero * 2
+	}
+	debemos poner lo que se quiera retornar en la misma linea que el return */
+
+	//return {original : numero, doble : numero * 2} ó
+	return {
+		original : numero, doble : numero * 2
+	}
+
+}
